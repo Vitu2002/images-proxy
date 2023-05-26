@@ -1,8 +1,8 @@
-import colors from 'chalk';
+import { blue, bold, cyan, green, grey, red, white, yellow } from 'colors';
 import dayjs from 'dayjs';
 
 export class LoggerClient {
-    private readonly date = () => colors.grey(dayjs().format('DD/MM/YYYY HH:mm:ss'));
+    private readonly date = () => grey(dayjs().format('DD/MM/YYYY HH:mm:ss'));
     private readonly identifier: string = 'System';
     constructor(identifier?: string) {
         if (identifier) this.identifier = identifier;
@@ -11,27 +11,27 @@ export class LoggerClient {
     log(message: any | string, identifier?: string) {
         console.log(
             this.date(),
-            colors.blue('[LOG]   '),
-            colors.white(identifier || this.identifier),
-            colors.green(message)
+            blue('[LOG]   '),
+            white(identifier || this.identifier),
+            green(message)
         );
     }
 
     error(message: any | string, identifier?: string) {
         console.error(
             this.date(),
-            colors.red('[ERROR] '),
-            colors.white(identifier || this.identifier),
-            colors.rgb(158, 26, 26)(message)
+            red('[ERROR] '),
+            white(identifier || this.identifier),
+            bold(message)
         );
     }
 
     warn(message: any | string, identifier?: string) {
         console.warn(
             this.date(),
-            colors.yellowBright('[WARN]  '),
-            colors.white(identifier || this.identifier),
-            colors.yellow(message)
+            yellow('[WARN]  '),
+            white(identifier || this.identifier),
+            cyan(message)
         );
     }
 }
