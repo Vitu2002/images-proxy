@@ -8,7 +8,7 @@ export default async function ProcessImage(req: Request, res: Response) {
         const { h, q, w, url, format } = req.query as unknown as Zod.TypeOf<typeof QuerySchema>;
         const fetched = await axios.get(url, { responseType: 'arraybuffer' }).catch(() => null);
         if (!fetched) throw new Error('Failed to fetch image from url');
-        if (!`${fetched.headers['Content-Type']}`?.startsWith('image/'))
+        if (!`${fetched.headers['content-type']}`?.startsWith('image/'))
             throw new Error('Provided URL is not from a image');
         const image = sharp(await fetched.data());
         if (w || h) image.resize(w, h);
