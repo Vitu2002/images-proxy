@@ -10,7 +10,7 @@ export default async function ProcessImage(req: Request, res: Response) {
         if (!fetched) throw new Error('Failed to fetch image from url');
         if (!`${fetched.headers['content-type']}`?.startsWith('image/'))
             throw new Error('Provided URL is not from a image');
-        const image = sharp(await fetched.data());
+        const image = sharp(fetched.data);
         if (w || h) image.resize(w, h);
         return res
             .setHeader('Content-Type', `image/${format}`)
