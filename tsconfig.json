@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "lib": ["ES2020"],
+        "module": "CommonJS",
+        "rootDir": "./",
+        "baseUrl": "./",
+        "paths": {
+            "@schemas/*": ["./src/schemas/*", "./dist/services/*"],
+            "@services/*": ["./src/services/*", "./dist/services/*"],
+            "@middleware/*": ["./src/middleware/*", "./dist/middleware/*"],
+            "@controllers/*": ["./src/controllers/*", "./dist/controllers/*"]
+        },
+        "typeRoots": ["./node_modules/@types", "./@types"],
+        "resolveJsonModule": true,
+        "allowJs": true,
+        "outDir": "./dist",
+        "removeComments": true,
+        "esModuleInterop": true,
+        "importsNotUsedAsValues": "remove",
+        "forceConsistentCasingInFileNames": true,
+        "strict": false,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "skipLibCheck": true
+    }
+}
