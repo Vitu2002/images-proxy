@@ -30,7 +30,6 @@ export const QuerySchema = z.object({
     url: z
         .string()
         .url()
-        .optional()
         .refine(url => !!hosts.find(f => f === new URL(url as string)?.host), {
             message: 'Host not allowed',
             path: ['url']
